@@ -1,52 +1,35 @@
-const TraderModel = require('./gql')
+const GQLModel = require('./gql')
 
-const traderResolver = {
-  TraderType: {
+const gqlResolver = {
+  GqlType: {
     __resolveReference: async (ref) => {
-        const currentTrader = TraderModel.findOne({ _id: ref._id });
-        return currentTrader;
+        return await GQLModel.findOne({ _id: ref._id });
       },
     },
   
   Query: {
-    trader: async (parent, args) => {
-      return await TraderModel.findById(args.id)
+    get: async (parent, args) => {
+      return await GQLModel.findById(args.id)
     },
-    traders: async () => {
-      return await TraderModel.find()
+    getAll: async () => {
+      return await GQLModel.find()
     },
   },
   Mutation: {
-    addTrader: async (parent, args) => {
-      let trader = new TraderModel(args)
+    addEntry: async (parent, args) => {
+      let trader = new GQLModel(args)
       return await trader.save()
     },
 
-    updateTrader: async (_, args) => {
-      let trader = await TraderModel.findById(args.id);
-      if (!trader)
-      {
-          throw new Error(`Couldn't find trader with this id ${args.id}`);
-      }
-
-      if (args.name !== undefined) {
-          trader.name = args.name;
-      }
-      if (args.desc !== undefined) {
-          trader.desc = args.desc;
-      }
-      return await trader.save();
+    removeEntry: async (_, args) => {
+      return await GQLModel.findOneAndDelete(args.id);
     },
 
-  removeTrader: async (_, args) => {
-      return await TraderModel.findOneAndDelete(args.id);
-    },
-
-  clearTraders: async ()=> {
-      await TraderModel.deleteMany();
-      console.log('All Traders successfully deleted');
+    clearAll: async ()=> {
+      await GQLModel.deleteMany();
+      console.log('All entries successfully deleted');
       return true;
     },
   }
 };
-module.exports = traderResolver
+module.exports = gqlResolver

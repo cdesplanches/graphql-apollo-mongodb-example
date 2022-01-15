@@ -7,8 +7,8 @@ const gqlType = gql `
         desc:String
     }
     type Query {
-        trader(id:ID!):GqlType
-        traders:[GqlType]
+        get(id:ID!):GqlType
+        getAll:[GqlType]
     }
     type Mutation{
         addEntry(name:String!, desc:String):GqlType

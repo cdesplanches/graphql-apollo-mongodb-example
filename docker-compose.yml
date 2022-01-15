@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:27017"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+  ms-qql-example:
+    build: ./graphql
+    ports: 
+      - "5000:8080"
+    depends_on:
+     - mongo
+    environment:
+      - NODE_ENV=production 
+
+volumes:
+  mongodb:
+

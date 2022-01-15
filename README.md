@@ -1,6 +1,5 @@
-<h1 align="center">Welcome to CryptoThune 👋</h1>
+<h1 align="center">Welcome to graphql-apollo-mongodb-example 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -9,12 +8,22 @@
   </a>
 </p>
 
-> CryptoThune is a complete fullstack environnement to manage your cryptocurrency portfolio.
+> This is q simple example of a graphQL microservice, using Apollo Server and MongoDB
+
+### 🏠 [Homepage](https://github.com/cdesplanches/graphql-apollo-mongodb-example)
+
+### ✨ [Demo](https://github.com/cdesplanches/graphql-apollo-mongodb-example)
 
 ## Install
 
 ```sh
-docker-compose up --build
+npm start
+```
+
+## Usage
+
+```sh
+npm start
 ```
 
 ## Author
@@ -28,7 +37,6 @@ docker-compose up --build
 ## Show your support
 
 Give a ⭐️ if this project helped you!
-
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> This is q simple example of a graphQL microservice, using Apollo Server and MongoDB
+> This is a simple example of a graphQL microservice, using Apollo Server and MongoDB
 
 ### 🏠 [Homepage](https://github.com/cdesplanches/graphql-apollo-mongodb-example)
 
@@ -17,13 +17,7 @@
 ## Install
 
 ```sh
-npm start
-```
-
-## Usage
-
-```sh
-npm start
+docker-compose up --build
 ```
 
 ## Author

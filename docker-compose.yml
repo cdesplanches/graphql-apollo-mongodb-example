@@ -17,9 +17,9 @@ services:
     ports: 
       - "5000:5000"
     depends_on:
-     - mongo
+      - mongo
     environment:
-    - MYENV=HERE 
+      - NODE_ENV=debug
 
 volumes:
   mongodb:
